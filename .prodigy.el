@@ -65,7 +65,7 @@
 
 (setq prodigy-services
       (prodigy-define-service
-        :name "Kafka Consumer \"events\" localhost"
+        :name "Kafka Consumer \"analyzed\" localhost"
         :cwd "/workspace/exp/kafka"
         :command "/bin/bash"
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "analyzed")
