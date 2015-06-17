@@ -1,3 +1,4 @@
 .lein/self-installs/*
 .lein/repl-history
 .lein/init.clj
+/.lein/credentials.clj

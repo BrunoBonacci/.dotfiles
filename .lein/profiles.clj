@@ -12,4 +12,5 @@
    ]
   :dependencies
   [[alembic "0.3.2"]
-   [criterium "0.4.3"]]}}
+   [criterium "0.4.3"]
+   [org.clojure/tools.nrepl "0.2.7"]]}}
