@@ -76,6 +76,16 @@
         :stop-signal 'kill
         :kill-process-buffer-on-stop t))
 
+
+(setq prodigy-services
+      (prodigy-define-service
+        :name "Kafka Consumer \"ingestion-kv\" localhost"
+        :cwd "/workspace/exp/kafka"
+        :command "/bin/bash"
+        :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "ingestion-kv")
+        :tags '(kafka sam-local)
+        :stop-signal 'kill
+        :kill-process-buffer-on-stop t))
 ;;
 ;; SAMSARA CORE
 ;;
