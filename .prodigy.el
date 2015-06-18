@@ -17,7 +17,7 @@
         :tags '(samsara)
         :port 9000
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
 
 (setq prodigy-services
       (prodigy-define-service
@@ -28,7 +28,7 @@
         :tags '(samsara sam-local)
         :port 9000
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
 ;;
 ;; Kafka
 ;;
@@ -41,7 +41,7 @@
         :tags '(zookeeper kafka sam-local)
         :port 2181
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
 
 (setq prodigy-services
       (prodigy-define-service
@@ -52,7 +52,7 @@
         :tags '(kafka sam-local)
         :port 9092
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
 
 
 (setq prodigy-services
@@ -63,7 +63,7 @@
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "events")
         :tags '(kafka sam-local)
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
 
 
 (setq prodigy-services
@@ -74,7 +74,7 @@
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "ingestion")
         :tags '(kafka sam-local)
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
 
 
 (setq prodigy-services
@@ -85,7 +85,7 @@
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "ingestion-kv")
         :tags '(kafka sam-local)
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
 ;;
 ;; SAMSARA CORE
 ;;
@@ -97,4 +97,4 @@
         :args '("run" "--" "-c" "./config/config.edn")
         :tags '(samsara sam-local)
         :stop-signal 'kill
-        :kill-process-buffer-on-stop t))
+        :kill-process-buffer-on-stop nil))
