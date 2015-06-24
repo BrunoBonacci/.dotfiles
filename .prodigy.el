@@ -16,7 +16,7 @@
         :args '("run" "--" "-c" "./config/config.edn")
         :tags '(samsara)
         :port 9000
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
 
 (setq prodigy-services
@@ -27,7 +27,7 @@
         :args '("run" "--" "-c" "./config/config-kafka.edn")
         :tags '(samsara sam-local)
         :port 9000
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
 ;;
 ;; Kafka
@@ -40,7 +40,7 @@
         :args '("bin/zookeeper-server-start.sh" "config/zookeeper.properties")
         :tags '(zookeeper kafka sam-local)
         :port 2181
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
 
 (setq prodigy-services
@@ -51,7 +51,7 @@
         :args '("bin/kafka-server-start.sh" "config/server.properties")
         :tags '(kafka sam-local)
         :port 9092
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
 
 
@@ -62,7 +62,7 @@
         :command "/bin/bash"
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "events")
         :tags '(kafka sam-local)
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
 
 
@@ -73,7 +73,7 @@
         :command "/bin/bash"
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "ingestion")
         :tags '(kafka sam-local)
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
 
 
@@ -84,7 +84,7 @@
         :command "/bin/bash"
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "ingestion-kv")
         :tags '(kafka sam-local)
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
 ;;
 ;; SAMSARA CORE
@@ -96,5 +96,5 @@
         :command "lein"
         :args '("run" "--" "-c" "./config/config.edn")
         :tags '(samsara sam-local)
-        :stop-signal 'kill
+        :stop-signal 'term
         :kill-process-buffer-on-stop nil))
