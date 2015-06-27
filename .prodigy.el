@@ -51,7 +51,7 @@
         :args '("bin/kafka-server-start.sh" "config/server.properties")
         :tags '(kafka sam-local)
         :port 9092
-        :stop-signal 'term
+        :stop-signal 'kill ;; should be term
         :kill-process-buffer-on-stop nil))
 
 
@@ -62,7 +62,7 @@
         :command "/bin/bash"
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "events")
         :tags '(kafka sam-local)
-        :stop-signal 'term
+        :stop-signal 'kill
         :kill-process-buffer-on-stop nil))
 
 
@@ -73,7 +73,7 @@
         :command "/bin/bash"
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "ingestion")
         :tags '(kafka sam-local)
-        :stop-signal 'term
+        :stop-signal 'kill
         :kill-process-buffer-on-stop nil))
 
 
@@ -84,7 +84,7 @@
         :command "/bin/bash"
         :args '("bin/kafka-console-consumer.sh" "--zookeeper" "localhost:2181" "--topic" "ingestion-kv")
         :tags '(kafka sam-local)
-        :stop-signal 'term
+        :stop-signal 'kill
         :kill-process-buffer-on-stop nil))
 ;;
 ;; SAMSARA CORE
