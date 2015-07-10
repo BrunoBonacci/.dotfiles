@@ -1,7 +1,7 @@
 {:user
  {:plugins
   [
-   [cider/cider-nrepl "0.9.0"]
+   [cider/cider-nrepl "0.9.1"]
    [lein-midje "3.1.3"]
    [lein-try "0.4.1"]
    [lein-marginalia "0.7.1"]
