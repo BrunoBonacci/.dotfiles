@@ -98,3 +98,33 @@
         :tags '(samsara sam-local)
         :stop-signal 'term
         :kill-process-buffer-on-stop nil))
+
+
+;;
+;; SPARK
+;;
+;; add conf/spark-env.sh
+;;   export SPARK_LOCAL_IP=192.168.59.3
+;;   export SPARK_PUBLIC_DNS=192.168.59.3
+;;   export STANDALONE_SPARK_MASTER_HOST=192.168.59.3:7077
+;;   export SPARK_MASTER_IP=192.168.59.3
+;;
+(setq prodigy-services
+      (prodigy-define-service
+        :name "Spark MASTER"
+        :cwd "/workspace/exp/spark"
+        :command "/bin/bash"
+        :args '("-c" ". conf/spark-env.sh && ./bin/spark-class org.apache.spark.deploy.master.Master --ip $SPARK_MASTER_IP --port 7077 --webui-port 8080")
+        :tags '(spark)
+        :stop-signal 'kill
+        :kill-process-buffer-on-stop nil))
+
+(setq prodigy-services
+      (prodigy-define-service
+        :name "Spark Worker"
+        :cwd "/workspace/exp/spark"
+        :command "/bin/bash"
+        :args '("-c" ". conf/spark-env.sh && ./bin/spark-class org.apache.spark.deploy.worker.Worker --work-dir /tmp/ --host $SPARK_LOCAL_IP --port 7078 --webui-port 8081 spark://$STANDALONE_SPARK_MASTER_HOST")
+        :tags '(spark)
+        :stop-signal 'kill
+        :kill-process-buffer-on-stop nil))
