@@ -128,3 +128,24 @@
         :tags '(spark)
         :stop-signal 'kill
         :kill-process-buffer-on-stop nil))
+
+
+(setq prodigy-services
+      (prodigy-define-service
+        :name "Spark (1.3.1) MASTER"
+        :cwd "/workspace/exp/spark-1.3.1-bin-hadoop2.6"
+        :command "/bin/bash"
+        :args '("-c" ". conf/spark-env.sh && ./bin/spark-class org.apache.spark.deploy.master.Master --ip $SPARK_MASTER_IP --port 7077 --webui-port 8080")
+        :tags '(spark3)
+        :stop-signal 'kill
+        :kill-process-buffer-on-stop nil))
+
+(setq prodigy-services
+      (prodigy-define-service
+        :name "Spark (1.3.1) Worker"
+        :cwd "/workspace/exp/spark-1.3.1-bin-hadoop2.6"
+        :command "/bin/bash"
+        :args '("-c" ". conf/spark-env.sh && ./bin/spark-class org.apache.spark.deploy.worker.Worker --work-dir /tmp/ --host $SPARK_LOCAL_IP --port 7078 --webui-port 8081 spark://$STANDALONE_SPARK_MASTER_HOST")
+        :tags '(spark3)
+        :stop-signal 'kill
+        :kill-process-buffer-on-stop nil))
