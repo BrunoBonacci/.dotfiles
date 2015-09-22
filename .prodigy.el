@@ -37,7 +37,7 @@
         :name "Zookeeper localhost"
         :cwd "/workspace/exp/kafka"
         :command "/bin/bash"
-        :args '("bin/zookeeper-server-start.sh" "config/zookeeper.properties")
+        :args '("-c" "rm -fr /tmp/zookeeper/ && bin/zookeeper-server-start.sh config/zookeeper.properties")
         :tags '(zookeeper kafka sam-local)
         :port 2181
         :stop-signal 'term
@@ -48,7 +48,7 @@
         :name "Kafka localhost"
         :cwd "/workspace/exp/kafka"
         :command "/bin/bash"
-        :args '("bin/kafka-server-start.sh" "config/server.properties")
+        :args '("-c" "rm -fr /tmp/kafka-logs/ && bin/kafka-server-start.sh config/server.properties")
         :tags '(kafka sam-local)
         :port 9092
         :stop-signal 'kill ;; should be term
