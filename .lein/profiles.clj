@@ -9,7 +9,7 @@
    [lein-marginalia "0.7.1"]
    [lein-bin "0.3.5"]
    [lein-ancient "0.5.4"]
-   [jonase/eastwood "0.0.2"]
+   [jonase/eastwood "0.2.1"]
    [lein-auto "0.1.1"]
    ]
   :dependencies

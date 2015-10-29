@@ -149,3 +149,14 @@
         :tags '(spark3)
         :stop-signal 'kill
         :kill-process-buffer-on-stop nil))
+
+
+(setq prodigy-services
+      (prodigy-define-service
+        :name "DynamoDB local"
+        :cwd "/tmp"
+        :command "/bin/bash"
+        :args '("-c" "java -jar /usr/local/Cellar/dynamodb-local/2015-04-27_1.0/libexec/DynamoDBLocal.jar -inMemory")
+        :tags '(dynamo)
+        :stop-signal 'kill
+        :kill-process-buffer-on-stop nil))
