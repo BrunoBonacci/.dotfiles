@@ -11,7 +11,7 @@
 (setq prodigy-services
       (prodigy-define-service
         :name "Samsara / Ingestion-APIs / console"
-        :cwd "/workspace/samsara/ingestion-api"
+        :cwd "/workspace/samsara/samsara/ingestion-api"
         :command "lein"
         :args '("run" "--" "-c" "./config/config.edn")
         :tags '(samsara)
@@ -22,7 +22,7 @@
 (setq prodigy-services
       (prodigy-define-service
         :name "Samsara / Ingestion-APIs / kafka"
-        :cwd "/workspace/samsara/ingestion-api"
+        :cwd "/workspace/samsara/samsara/ingestion-api"
         :command "lein"
         :args '("run" "--" "-c" "./config/config-kafka.edn")
         :tags '(samsara sam-local)
@@ -92,7 +92,7 @@
 (setq prodigy-services
       (prodigy-define-service
         :name "Samsara / CORE / kafka"
-        :cwd "/workspace/samsara/core"
+        :cwd "/workspace/samsara/samsara/core"
         :command "lein"
         :args '("run" "--" "-c" "./config/config.edn")
         :tags '(samsara sam-local)
