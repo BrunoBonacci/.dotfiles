@@ -17,6 +17,6 @@
    [org.clojure/tools.nrepl "0.2.12"]
    ]}
  :repl {:plugins
-        [[refactor-nrepl "2.2.0-SNAPSHOT"]
-         [cider/cider-nrepl "0.11.0"]
+        [
+         [refactor-nrepl "2.2.0-SNAPSHOT"]
          ]}}
