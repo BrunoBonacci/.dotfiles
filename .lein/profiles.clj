@@ -10,13 +10,14 @@
    [lein-auto "0.1.1"]
    [lein-shell "0.5.0"]
    [lein-gorilla "0.3.6" :exclusions [[cider/cider-nrepl]]]
+   #_[samsara/lein-template "0.1.0-SNAPSHOT"]
    ]
-  :dependencies
-  [[alembic "0.3.2"]
-   [criterium "0.4.3"]
-   [org.clojure/tools.nrepl "0.2.12"]
-   ]}
+  }
  :repl {:plugins
-        [
-         [refactor-nrepl "2.2.0-SNAPSHOT"]
+        [[refactor-nrepl "2.2.0"]
+         [cider/cider-nrepl "0.13.0"]]
+        :dependencies
+        [[alembic "0.3.2"]
+         [criterium "0.4.3"]
+         #_[org.clojure/tools.nrepl "0.2.12"]
          ]}}
