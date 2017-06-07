@@ -12,12 +12,16 @@
  :tools
  {:plugins
   [[lein-try "0.4.3"]
-   [lein-binplus "0.4.2"]
+   [lein-binplus "0.6.2"]
    [lein-ancient "0.6.10"]
-   [jonase/eastwood "0.2.3"]
-   [lein-kibit "0.1.3"]
    [lein-shell "0.5.0"]
    [lein-cloverage "1.0.7-SNAPSHOT"]
+   [lein-cljfmt "0.5.6"]
+   [venantius/yagni "0.1.4"]
+   [lein-bikeshed "0.4.1"]
+   [jonase/eastwood "0.2.4"]
+   [lein-kibit "0.1.5"]
+   [lein-checkall "0.1.1"]
    #_[samsara/lein-template "0.1.0-SNAPSHOT"]
    ]
   }}
