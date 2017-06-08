@@ -24,4 +24,14 @@
    [lein-checkall "0.1.1"]
    #_[samsara/lein-template "0.1.0-SNAPSHOT"]
    ]
+  }
+ :tools2
+ {:plugins
+  [[com.livingsocial/lein-dependency-check "0.2.2"] ;; security scan
+   [lein-instant-cheatsheet "2.2.1"]
+   [org.timmc/nephila "0.3.0"] ;; namespace dep graph
+   ]
   }}
+
+
+;; lein-extend-cp - local lib dir
