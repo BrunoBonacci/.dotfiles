@@ -2,3 +2,5 @@
 .lein/repl-history
 .lein/init.clj
 /.lein/credentials.clj
+/.lein/credentials.clj.gpg
+/bin/wrk
