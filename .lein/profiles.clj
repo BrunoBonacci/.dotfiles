@@ -12,23 +12,23 @@
  :tools
  {:plugins
   [[lein-try "0.4.3"]
-   [lein-binplus "0.6.2"]
-   [lein-ancient "0.6.10"]
+   [lein-binplus "0.6.4"]
+   [lein-ancient "0.6.15"]
    [lein-shell "0.5.0"]
-   [lein-cloverage "1.0.7-SNAPSHOT"]
-   [lein-cljfmt "0.5.6"]
+   [lein-cloverage "1.0.10"]
+   [lein-cljfmt "0.5.7"]
    [venantius/yagni "0.1.4"]
-   [lein-bikeshed "0.4.1"]
-   [jonase/eastwood "0.2.4"]
-   [lein-kibit "0.1.5"]
+   [lein-bikeshed "0.5.1"]
+   [jonase/eastwood "0.2.6"]
+   [lein-kibit "0.1.6"]
    [lein-checkall "0.1.1"]
    #_[samsara/lein-template "0.1.0-SNAPSHOT"]
    ]
   }
  :tools2
  {:plugins
-  [[com.livingsocial/lein-dependency-check "0.2.2"] ;; security scan
-   [lein-instant-cheatsheet "2.2.1"]
+  [[com.livingsocial/lein-dependency-check "1.0.2"] ;; security scan
+   [lein-instant-cheatsheet "2.2.2"]
    [org.timmc/nephila "0.3.0"] ;; namespace dep graph
    ]
   }}
