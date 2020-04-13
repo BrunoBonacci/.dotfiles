@@ -3,4 +3,10 @@
 .lein/init.clj
 /.lein/credentials.clj
 /.lein/credentials.clj.gpg
-/bin/wrk
+*~
+.DS_Store
+*#
+.#*
+.nrepl-port
+flymd.md
+flymd.html
