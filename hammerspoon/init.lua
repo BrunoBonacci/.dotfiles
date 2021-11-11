@@ -71,6 +71,33 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "pad*", function()
   part(5,5)
 end)
 
+
+-- SIXTH
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "T", function()
+  part(6,1)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Y", function()
+  part(6,2)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "U", function()
+  part(6,3)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "I", function()
+  part(6,4)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "O", function()
+  part(6,5)
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "P", function()
+  part(6,6)
+end)
+
+
 -- RESIZING
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Up", function()
@@ -158,13 +185,18 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
     local help = [[
     Hammerspoon keymap
     -------------------------------------------
-     [ctrl+opt+cmd] + 0, .          : Halves
-     [ctrl+opt+cmd] + 1, 2, 3       : Thirds
-     [ctrl+opt+cmd] + 4, 5, 6, +    : Quarters
-     [ctrl+opt+cmd] + 7, 8, 9, -,*  : Fifths
+     [ctrl+opt+cmd] + 0, .          : 1/2
+     [ctrl+opt+cmd] + 1, 2, 3       : 1/3
+     [ctrl+opt+cmd] + 4, 5, 6, +    : 1/4
+     [ctrl+opt+cmd] + 7, 8, 9, -,*  : 1/5
+     [ctrl+opt+cmd] + T .. P        : 1/6
 
      [ctrl+opt+cmd] + ⬆, ⬇, ⬅, ➡    : Resize half/double
     [alt+opt+shift] + ⬆, ⬇, ⬅, ➡    : Move to next/prev slot
+
+     Layouts:
+     ---------
+     [f2]                           : Emacs Dev
 
      [ctrl+opt+cmd] + R             : Reload config
      [ctrl+opt+cmd] + H             : This help
