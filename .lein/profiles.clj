@@ -1,12 +1,13 @@
 {:user
- {:repl-options {:init (set! *print-length* 100)}
+ {:repl-options {:init (do (set! *print-length* 100)
+                           (require '[com.brunobonacci.repl-driven-dev-tools]))}
   :jvm-opts ["-server" "-Dfile.encoding=UTF-8"]
-  :dependencies [[com.brunobonacci/where "0.5.5"]
-                 [cider/cider-nrepl "0.25.4"]]
+  :dependencies [[com.brunobonacci/repl-driven-dev-tools "0.38.0"]]
+
 
   :plugins
-  [[lein-auto "0.1.3"]
-   [refactor-nrepl "2.5.1"]]
+  [[lein-auto "0.1.3"]]
+
 
   :aliases
   {"clean-clojure"
@@ -35,19 +36,19 @@
   [[jonase/eastwood "0.3.10"] ;; code smells / linting
    [lein-kibit      "0.1.6"]  ;; check idiomatic clojure
    [lein-ancient    "0.6.15"] ;; check/update dependencies
-   [lein-cloverage  "1.2.0"]  ;; code coverage
+   [lein-cloverage  "1.2.2"]  ;; code coverage
    [lein-nvd        "1.4.1"]  ;; security scan
    [venantius/yagni "0.1.4"]  ;; dead code elimination
    [lein-bikeshed   "0.5.1"]  ;; check code smells
-   [lein-checkall   "0.1.1"]  ;; like lein check, kibit, eastwood bikeshed
+   [lein-checkall   "0.1.1"] ;; like lein check, kibit, eastwood bikeshed
    ]}
 
  :tools
  {:plugins
-  [[lein-binplus "0.6.4"]    ;; build executable jars
-   [lein-ancient "0.6.15"]   ;; check/update dependencies
-   [lein-shell   "0.5.0"]    ;; run shell commands
-   [lein-cljfmt  "0.6.8"]    ;; source code formatting
+  [[lein-binplus "0.6.4"]  ;; build executable jars
+   [lein-ancient "0.6.15"] ;; check/update dependencies
+   [lein-shell   "0.5.0"]  ;; run shell commands
+   [lein-cljfmt  "0.6.8"]  ;; source code formatting
    #_[samsara/lein-template "0.1.0-SNAPSHOT"]
    ]
 
@@ -58,8 +59,8 @@
  :tools2
  {:plugins
   [[com.livingsocial/lein-dependency-check "1.0.2"] ;; security scan
-   [lein-instant-cheatsheet "2.2.2"]   ;; create checksheets for your projects
-   [org.timmc/nephila "0.3.0"]         ;; namespace dep graph
+   [lein-instant-cheatsheet "2.2.2"] ;; create checksheets for your projects
+   [org.timmc/nephila "0.3.0"]       ;; namespace dep graph
    ]
   }
 
