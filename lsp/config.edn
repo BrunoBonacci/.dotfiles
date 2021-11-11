@@ -1,0 +1,3 @@
+{:cljfmt {:remove-consecutive-blank-lines? false
+           :remove-surrounding-whitespace?  false
+           :indents ^:replace {".*"   [[:inner 0]]}}}
