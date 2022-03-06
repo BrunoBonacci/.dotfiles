@@ -237,6 +237,39 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "V", function()
 end)
 
 
+-- Move window to workspace
+
+-- require external module
+-- git clone https://github.com/asmagill/hs._asm.undocumented.spaces spaces
+-- git checkout f48e7d7 # (2021-03-18)
+-- cd spaces
+-- export HS_APPLICATION=/Applications
+-- export PREFIX=~/.hammerspoon
+-- make install-arm64
+
+local spaces = require("hs._asm.undocumented.spaces")
+
+function MoveWindowToSpace(sp)
+    local win = hs.window.focusedWindow()       -- current window
+    local uuid = win:screen():spacesUUID()      -- uuid for current screen
+    local spaceID = spaces.layout()[uuid][sp]   -- internal index for sp
+    spaces.moveWindowToSpace(win:id(), spaceID) -- move window to new space
+    spaces.changeToSpace(spaceID, true)         -- follow window to new space
+end
+
+hs.hotkey.bind({"cmd", "shift", "ctrl"}, '1', function()
+  MoveWindowToSpace(1)
+end)
+
+hs.hotkey.bind({"cmd", "shift", "ctrl"}, '2', function()
+  MoveWindowToSpace(2)
+end)
+
+hs.hotkey.bind({"cmd", "shift", "ctrl"}, '3', function()
+  MoveWindowToSpace(3)
+end)
+
+
 -- RELOAD
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
