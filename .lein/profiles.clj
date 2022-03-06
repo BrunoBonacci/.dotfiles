@@ -2,7 +2,7 @@
  {:repl-options {:init (do (set! *print-length* 100)
                            (require '[com.brunobonacci.repl-driven-dev-tools]))}
   :jvm-opts ["-server" "-Dfile.encoding=UTF-8"]
-  :dependencies [[com.brunobonacci/repl-driven-dev-tools "0.38.0"]]
+  :dependencies [[com.brunobonacci/repl-driven-dev-tools "LATEST"]]
 
 
   :plugins

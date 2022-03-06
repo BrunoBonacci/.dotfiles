@@ -3,7 +3,6 @@
   '[cheshire.core :as json]
   '[clojure.string :as str]
   '[clojure.java.io :as io]
-  '[clojure.java.shell :as sh]
   '[babashka.curl :as curl])
 
 

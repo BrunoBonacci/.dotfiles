@@ -170,9 +170,9 @@ hs.hotkey.bind({}, "f2", function()
   local max = screen:frame()
 
     local windowLayout = {
-        {"Google Chrome",  nil, screen, hs.geometry.rect(0, 0, 0.15, 1), nil, nil},
-        {"Emacs",   nil, screen, hs.geometry.rect(0.15, 0, 0.70, 1), nil, nil},
-        {"iTerm2",  nil, screen, hs.geometry.rect(0.85, 0, 0.15, 1), nil, nil},
+        {"Google Chrome",  nil, screen, hs.geometry.rect(0, 0, 0.166, 1), nil, nil},
+        {"Emacs",   nil, screen, hs.geometry.rect(0.166, 0, 0.668, 1), nil, nil},
+        {"iTerm2",  nil, screen, hs.geometry.rect(0.834, 0, 0.166, 1), nil, nil},
     }
     hs.layout.apply(windowLayout)
     hs.alert.show("Emacs DEV Layout applied!")
@@ -203,6 +203,37 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
     -------------------------------------------
 ]]
     hs.alert.show(help, hs.alert.defaultStyle, hs.screen.mainScreen(), 5)
+end)
+
+
+
+-- CAFFEINATE (stop screen to go to sleep)
+
+caffeine = hs.menubar.new()
+function setCaffeineDisplay(state)
+    if state then
+        -- awake
+        caffeine:setTitle("😳")
+    else
+        -- sleepy
+        caffeine:setTitle("💤")
+    end
+end
+
+function caffeineClicked()
+    setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
+end
+
+if caffeine then
+    caffeine:setClickCallback(caffeineClicked)
+    setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
+end
+
+
+-- DEFEATING PASTE BLOCKING
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "V", function()
+  hs.eventtap.keyStrokes(hs.pasteboard.getContents())
 end)
 
 
