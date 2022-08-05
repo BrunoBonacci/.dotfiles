@@ -2,7 +2,9 @@
  {:repl-options {:init (do (set! *print-length* 100)
                            (require '[com.brunobonacci.repl-driven-dev-tools]))}
   :jvm-opts ["-server" "-Dfile.encoding=UTF-8"]
-  :dependencies [[com.brunobonacci/repl-driven-dev-tools "LATEST"]]
+  :dependencies [[com.brunobonacci/repl-driven-dev-tools "LATEST"]
+                 [com.github.jpmonettas/flow-storm-dbg "2.2.114"]
+                 [com.github.jpmonettas/flow-storm-inst "2.2.114"]]
 
 
   :plugins
