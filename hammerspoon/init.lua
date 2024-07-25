@@ -206,6 +206,19 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
 end)
 
 
+-- LAUNCH new terminal window
+
+hs.hotkey.bind({"cmd", "shift"}, "T", function()
+  -- hs.application.open("kitty")
+
+  local t = hs.task.new("/Applications/kitty.app/Contents/MacOS/kitty",
+    nil,
+    function() return false end,
+    { "--single-instance"})
+  t:start()
+end)
+
+
 
 -- CAFFEINATE (stop screen to go to sleep)
 
