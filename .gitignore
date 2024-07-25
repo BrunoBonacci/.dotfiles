@@ -11,4 +11,5 @@
 flymd.md
 flymd.html
 .clj-kondo/
-/.lsp/
+.lsp/*
+!.lsp/config.edn
