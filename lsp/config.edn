@@ -1,3 +1,8 @@
+;; https://github.com/clojure-lsp/clojure-lsp/blob/master/docs/all-available-settings.edn
 {:cljfmt {:remove-consecutive-blank-lines? false
-           :remove-surrounding-whitespace?  false
-           :indents ^:replace {".*"   [[:inner 0]]}}}
+          :remove-surrounding-whitespace?  false
+          :indents {#re ".*" [[:inner 0]]}}
+
+ :auto-add-ns-to-new-files? true
+ :clean { :automatically-after-ns-refactor true}
+ }
