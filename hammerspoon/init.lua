@@ -172,7 +172,7 @@ hs.hotkey.bind({}, "f2", function()
     local windowLayout = {
         {"Google Chrome",  nil, screen, hs.geometry.rect(0, 0, 0.166, 1), nil, nil},
         {"Emacs",   nil, screen, hs.geometry.rect(0.166, 0, 0.668, 1), nil, nil},
-        {"iTerm2",  nil, screen, hs.geometry.rect(0.834, 0, 0.166, 1), nil, nil},
+        {"kitty",  nil, screen, hs.geometry.rect(0.834, 0, 0.166, 1), nil, nil},
     }
     hs.layout.apply(windowLayout)
     hs.alert.show("Emacs DEV Layout applied!")
