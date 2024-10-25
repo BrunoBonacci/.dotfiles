@@ -1,3 +1,6 @@
+--------------------------------------------------------------------------------
+-- Window layout management
+--------------------------------------------------------------------------------
 function part(parts, part)
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -11,12 +14,29 @@ function part(parts, part)
   win:setFrame(f)
 end
 
+-- FULL SCREEN
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "f", function()
+  part(1,1)
+end)
+
+
 -- HALF
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "pad0", function()
   part(2,1)
 end)
 
+-- alternative binding for built-in keyboard
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "-", function()
+  part(2,1)
+end)
+
+
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "pad.", function()
+  part(2,2)
+end)
+
+-- alternative binding for built-in keyboard
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "=", function()
   part(2,2)
 end)
 
@@ -98,7 +118,9 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "P", function()
 end)
 
 
+--------------------------------------------------------------------------------
 -- RESIZING
+--------------------------------------------------------------------------------
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Up", function()
   local win = hs.window.focusedWindow()
@@ -130,7 +152,9 @@ end)
 
 
 
+--------------------------------------------------------------------------------
 -- MOVE
+--------------------------------------------------------------------------------
 
 hs.hotkey.bind({"alt", "ctrl", "shift"}, "Up", function()
   local win = hs.window.focusedWindow()
@@ -161,7 +185,9 @@ hs.hotkey.bind({"alt", "ctrl", "shift"}, "Right", function()
 end)
 
 
--- LAYOUTS
+--------------------------------------------------------------------------------
+-- LAYOUTS presets
+--------------------------------------------------------------------------------
 
 hs.hotkey.bind({}, "f2", function()
   local win = hs.window.focusedWindow()
@@ -180,12 +206,15 @@ end)
 
 
 
+--------------------------------------------------------------------------------
 -- INFO and HELP
+--------------------------------------------------------------------------------
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
     local help = [[
     Hammerspoon keymap
-    -------------------------------------------
-     [ctrl+opt+cmd] + 0, .          : 1/2
+    ----------------------------------------------
+     [ctrl+opt+cmd] + f             : full screen
+     [ctrl+opt+cmd] + 0, . | -, =   : 1/2
      [ctrl+opt+cmd] + 1, 2, 3       : 1/3
      [ctrl+opt+cmd] + 4, 5, 6, +    : 1/4
      [ctrl+opt+cmd] + 7, 8, 9, -,*  : 1/5
@@ -200,13 +229,15 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
 
      [ctrl+opt+cmd] + R             : Reload config
      [ctrl+opt+cmd] + H             : This help
-    -------------------------------------------
+    ----------------------------------------------
 ]]
     hs.alert.show(help, hs.alert.defaultStyle, hs.screen.mainScreen(), 5)
 end)
 
 
+--------------------------------------------------------------------------------
 -- LAUNCH new terminal window
+--------------------------------------------------------------------------------
 
 hs.hotkey.bind({"cmd", "shift"}, "T", function()
   -- hs.application.open("kitty")
@@ -220,7 +251,9 @@ end)
 
 
 
+--------------------------------------------------------------------------------
 -- CAFFEINATE (stop screen to go to sleep)
+--------------------------------------------------------------------------------
 
 caffeine = hs.menubar.new()
 function setCaffeineDisplay(state)
@@ -250,40 +283,42 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "V", function()
 end)
 
 
+--------------------------------------------------------------------------------
 -- Move window to workspace
-
--- require external module
--- git clone https://github.com/asmagill/hs._asm.undocumented.spaces spaces
--- git checkout f48e7d7 # (2021-03-18)
--- cd spaces
--- export HS_APPLICATION=/Applications
--- export PREFIX=~/.hammerspoon
--- make install-arm64
-
-local spaces = require("hs._asm.undocumented.spaces")
+--------------------------------------------------------------------------------
 
 function MoveWindowToSpace(sp)
     local win = hs.window.focusedWindow()       -- current window
-    local uuid = win:screen():spacesUUID()      -- uuid for current screen
-    local spaceID = spaces.layout()[uuid][sp]   -- internal index for sp
-    spaces.moveWindowToSpace(win:id(), spaceID) -- move window to new space
-    spaces.changeToSpace(spaceID, true)         -- follow window to new space
+    local screenID = hs.screen.mainScreen():getUUID()   -- current screen
+    local all_spaces=hs.spaces.allSpaces()
+    local spaceID = all_spaces[screenID][sp]
+    hs.spaces.moveWindowToSpace(win:id(), spaceID) -- move window to new space
+    hs.spaces.gotoSpace(spaceID)                   -- follow window to new space
 end
 
-hs.hotkey.bind({"cmd", "shift", "ctrl"}, '1', function()
+hs.hotkey.bind({"cmd", "alt", "shift", "ctrl"}, '1', function()
   MoveWindowToSpace(1)
 end)
 
-hs.hotkey.bind({"cmd", "shift", "ctrl"}, '2', function()
+hs.hotkey.bind({"cmd", "alt", "shift", "ctrl"}, '2', function()
   MoveWindowToSpace(2)
 end)
 
-hs.hotkey.bind({"cmd", "shift", "ctrl"}, '3', function()
+hs.hotkey.bind({"cmd", "alt", "shift", "ctrl"}, '3', function()
   MoveWindowToSpace(3)
 end)
 
+hs.hotkey.bind({"cmd", "alt", "shift", "ctrl"}, '4', function()
+  MoveWindowToSpace(4)
+end)
 
+hs.hotkey.bind({"cmd", "alt", "shift", "ctrl"}, '5', function()
+  MoveWindowToSpace(5)
+end)
+
+--------------------------------------------------------------------------------
 -- RELOAD
+--------------------------------------------------------------------------------
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
   hs.reload()
